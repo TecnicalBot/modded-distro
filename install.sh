@@ -7,15 +7,35 @@ Y="$(printf '\033[1;33m')"
 W="$(printf '\033[1;37m')"
 C="$(printf '\033[1;36m')"
 
+banner(){
+clear
+printf ${C}"████████╗██████╗  ██████╗ ████████╗\n"
+printf     "╚══██╔══╝██╔══██╗██╔═══██╗╚══██╔══╝\n"
+printf     "   ██║   ██████╔╝██║   ██║   ██║   \n"
+printf     "   ██║   ██╔══██╗██║   ██║   ██║   \n"
+printf     "   ██║   ██████╔╝╚██████╔╝   ██║   \n"
+printf     "   ╚═╝   ╚═════╝  ╚═════╝    ╚═╝   \n"${W}
+printf ${Y}"                By Technical Bot\n"${W}
+}
+
+
+
 CHROOT=$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu
 
-
+install_ubuntu(){
+echo
+if [[ -d "$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu" ]]; then
+echo ${G}"Existing Ubuntu installation found, Resetting it..."${W}
+proot-distro reset ubuntu
+else
 echo ${G}"Installing Ubuntu..."${W}
 echo
 pkg update
 pkg install proot-distro
 proot-distro install ubuntu
-echo
+fi
+}
+
 install_desktop(){
 cat > $CHROOT/root/.bashrc <<- EOF
 echo ${G}"Installing XFCE Desktop..."${W}
@@ -85,7 +105,24 @@ proot-distro login ubuntu
 rm $CHROOT/root/.bashrc
 }
 
+final_banner(){
+banner
+echo
+echo ${G}"Installion completed"
+echo
+echo "ubuntu  -  To start Ubuntu"
+echo
+echo "ubuntu  -  default ubuntu password"
+echo
+echo "vncstart  -  To start vncserver, Execute inside ubuntu"
+echo
+echo "vncstop  -  To stop vncserver, Execute inside ubuntu"${W}
+}
+
+banner
+install_ubuntu
 install_desktop
 install_extra
 adding_user
 install_theme
+final_banner
