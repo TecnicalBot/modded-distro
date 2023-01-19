@@ -1,7 +1,14 @@
 #!/bin/bash
 
-#sudo apt update
-#sudo apt install yaru-theme-gtk yaru-theme-icon  ubuntu-wallpapers-impish plank dconf-cli xfce4-panel-profiles git -y
+#Adding colors
+R="$(printf '\033[1;31m')"
+G="$(printf '\033[1;32m')"
+Y="$(printf '\033[1;33m')"
+W="$(printf '\033[1;37m')"
+C="$(printf '\033[1;36m')"
+
+sudo apt update
+sudo apt install yaru-theme-gtk yaru-theme-icon  ubuntu-wallpapers-impish plank dconf-cli xfce4-panel-profiles git -y
 cd ~
 git clone https://github.com/TecnicalBot/modded-distro
 cd ~/modded-distro/theme/panel
@@ -16,7 +23,7 @@ mkdir -p ~/.config/plank/dock1/
 mv ~/modded-distro/theme/plank/launchers ~/.config/plank/dock1/
 mv ~/modded-distro/theme/plank/Azeny ~/.local/share/plank/themes
 
-
+echo ${G}"Create Your VNC Password"${W}
 vncstart
 sleep 60
 vncstop
@@ -34,3 +41,8 @@ dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4
 sleep 1
 cat ~/modded-distro/theme/plank/dock.ini | dbus-launch dconf load  /net/launchpad/plank/docks/dock1/
 rm -rf ~/modded-distro 
+
+
+echo ${G}"Installation Completed"${W}
+
+
