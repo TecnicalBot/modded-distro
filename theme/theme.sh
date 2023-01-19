@@ -23,6 +23,8 @@ mkdir -p ~/.config/plank/dock1/
 mv ~/modded-distro/theme/plank/launchers ~/.config/plank/dock1/
 mv ~/modded-distro/theme/plank/Azeny ~/.local/share/plank/themes
 
+clear
+echo
 echo ${G}"Create Your VNC Password"${W}
 vncstart
 sleep 60
@@ -42,7 +44,5 @@ sleep 1
 cat ~/modded-distro/theme/plank/dock.ini | dbus-launch dconf load  /net/launchpad/plank/docks/dock1/
 rm -rf ~/modded-distro 
 
-
-echo ${G}"Installation Completed"${W}
 
 
