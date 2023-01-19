@@ -1,5 +1,8 @@
 #!/bin/bash
 
+vncstart
+sleep 30
+vncstop
 sudo apt update
 sudo apt install yaru-theme-gtk yaru-theme-icon  ubuntu-wallpapers-impish plank dconf-cli xfce4-panel-profiles git -y
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
