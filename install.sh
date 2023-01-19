@@ -1,13 +1,24 @@
 #!/data/data/com.termux/files/usr/bin/sh
+
+#Adding colors
+R="$(printf '\033[1;31m')"
+G="$(printf '\033[1;32m')"
+Y="$(printf '\033[1;33m')"
+W="$(printf '\033[1;37m')"
+C="$(printf '\033[1;36m')"
+
 CHROOT=$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu
 
+
+echo ${G}"Installing Ubuntu..."${W}
+echo
 pkg update
 pkg install proot-distro
 proot-distro install ubuntu
 echo
 install_desktop(){
 cat > $CHROOT/root/.bashrc <<- EOF
-echo "Installing XFCE Desktop..."
+echo ${G}"Installing XFCE Desktop..."${W}
 echo
 apt-get update
 apt install udisks2 -y
@@ -30,7 +41,7 @@ rm -rf $CHROOT/root/.bashrc
 
 adding_user(){
 cat > $CHROOT/root/.bashrc <<- EOF
-echo "Adding a User..."
+echo ${G}"Adding a User..."${W}
 echo
 apt-get update
 apt-get install sudo -y
@@ -49,6 +60,7 @@ rm $CHROOT/root/.bashrc
 }
 
 install_theme(){
+echo ${G}"Installing Theme"${W}
 mv $CHROOT/home/ubuntu/.bashrc $CHROOT/home/ubuntu/.bashrc.bak
 echo "wget https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/theme/theme.sh ; bash  theme.sh; exit" >> $CHROOT/home/ubuntu/.bashrc
 ubuntu
@@ -59,6 +71,7 @@ sed -i 's/32/31/g' $CHROOT/root/.bashrc
 }
 
 install_extra(){
+echo ${G}"Installing Extra"${W}
 cat > $CHROOT/root/.bashrc <<- EOF
 echo "deb http://ftp.debian.org/debian stable main contrib non-free" >> /etc/apt/sources.list
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
@@ -72,7 +85,7 @@ proot-distro login ubuntu
 rm $CHROOT/root/.bashrc
 }
 
-#install_desktop
-#install_extra
-#adding_user
-#install_theme
+install_desktop
+install_extra
+adding_user
+install_theme
