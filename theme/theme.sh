@@ -30,17 +30,17 @@ vncstart
 sleep 60
 vncstop
 
-sleep 1
+sleep 10
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
-sleep 1
+sleep 10
 dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "Yaru-dark"
-sleep 60
+sleep 10
 dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "Yaru-dark"
-sleep 60
+sleep 10
 dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Yaru-dark"
-sleep 60
+sleep 10
 dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s /usr/share/backgrounds/warty-final-ubuntu.png
-sleep 1
+sleep 10
 cat ~/modded-distro/theme/plank/dock.ini | dbus-launch dconf load  /net/launchpad/plank/docks/dock1/
 rm -rf ~/modded-distro 
 
