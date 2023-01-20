@@ -8,7 +8,7 @@ W="$(printf '\033[1;37m')"
 C="$(printf '\033[1;36m')"
 
 sudo apt update
-sudo apt install yaru-theme-gtk yaru-theme-icon  ubuntu-wallpapers-impish plank dconf-cli xfce4-panel-profiles git -y
+sudo apt install yaru-theme-gtk yaru-theme-icon ubuntu-wallpapers ubuntu-wallpapers-jammy ubuntu-wallpapers-impish plank dconf-cli xfce4-panel-profiles git -y
 cd ~
 git clone https://github.com/TecnicalBot/modded-distro
 cd ~/modded-distro/theme/panel
@@ -34,11 +34,11 @@ sleep 1
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
 sleep 1
 dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "Yaru-dark"
-sleep 30
+sleep 60
 dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "Yaru-dark"
-sleep 30 
+sleep 60
 dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Yaru-dark"
-sleep 1
+sleep 60
 dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s /usr/share/backgrounds/warty-final-ubuntu.png
 sleep 1
 cat ~/modded-distro/theme/plank/dock.ini | dbus-launch dconf load  /net/launchpad/plank/docks/dock1/
