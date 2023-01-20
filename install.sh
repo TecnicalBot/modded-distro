@@ -106,6 +106,18 @@ proot-distro login ubuntu
 rm $CHROOT/root/.bashrc
 }
 
+sound_fix(){
+echo ${G}"Fixing Sound..."${W}
+pkg update
+pkg install x11-repo -y ; pkg install pulseaudio -y
+cat >> ~/.bashrc <<
+pulseaudio --start \
+    --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" \
+    --exit-idle-time=-1
+EOF
+bash
+}
+
 final_banner(){
 banner
 echo
@@ -126,4 +138,5 @@ install_desktop
 install_extra
 adding_user
 install_theme
+sound_fix
 final_banner
