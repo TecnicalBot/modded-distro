@@ -11,7 +11,7 @@
 /panels/panel-0/length-adjust true
 /panels/panel-0/mode uint32 0
 /panels/panel-0/nrows uint32 1
-/panels/panel-0/plugin-ids [<1>, <2>, <3>, <4>, <5>, <8>, <9>, <10>, <11>]
+/panels/panel-0/plugin-ids [<1>, <7>, <3>, <2>, <13>, <4>, <5>, <8>, <9>, <10>, <11>]
 /panels/panel-0/position 'p=6;x=0;y=0'
 /panels/panel-0/position-locked true
 /panels/panel-0/size uint32 24
@@ -28,6 +28,9 @@
 /plugins/plugin-11 'actions'
 /plugins/plugin-11/appearance uint32 0
 /plugins/plugin-11/items [<'-lock-screen'>, <'-switch-user'>, <'-separator'>, <'-suspend'>, <'-hibernate'>, <'-hybrid-sleep'>, <'-separator'>, <'-shutdown'>, <'-restart'>, <'-separator'>, <'+logout'>, <'-logout-dialog'>]
+/plugins/plugin-13 'separator'
+/plugins/plugin-13/expand true
+/plugins/plugin-13/style uint32 0
 /plugins/plugin-2 'separator'
 /plugins/plugin-2/expand true
 /plugins/plugin-2/style uint32 0
@@ -40,12 +43,16 @@
 /plugins/plugin-4/expand true
 /plugins/plugin-4/style uint32 0
 /plugins/plugin-5 'notification-plugin'
+/plugins/plugin-7 'appmenu'
+/plugins/plugin-7/plugins/plugin-7/bold-application-name true
+/plugins/plugin-7/plugins/plugin-7/compact-mode true
+/plugins/plugin-7/plugins/plugin-7/expand false
 /plugins/plugin-8 'pulseaudio'
 /plugins/plugin-8/enable-keyboard-shortcuts true
 /plugins/plugin-8/enable-mpris true
 /plugins/plugin-8/enable-multimedia-keys true
 /plugins/plugin-8/mixer-command 'pavucontrol'
-/plugins/plugin-8/mpris-players 'parole;'
+/plugins/plugin-8/mpris-players ';firefox.instance23960;firefox.instance28809;firefox.instance30781;firefox.instance30978;firefox.instance31735;firefox.instance857;parole'
 /plugins/plugin-8/show-notifications true
 /plugins/plugin-9 'separator'
 /plugins/plugin-9/expand false
