@@ -37,9 +37,8 @@ fi
 }
 
 install_desktop(){
-cat > $CHROOT/root/.bashrc <<- EOF
 echo ${G}"Installing XFCE Desktop..."${W}
-echo
+cat > $CHROOT/root/.bashrc <<- EOF
 apt-get update
 apt install udisks2 -y
 rm -rf /var/lib/dpkg/info/udisks2.postinst
@@ -60,9 +59,8 @@ rm -rf $CHROOT/root/.bashrc
 }
 
 adding_user(){
-cat > $CHROOT/root/.bashrc <<- EOF
 echo ${G}"Adding a User..."${W}
-echo
+cat > $CHROOT/root/.bashrc <<- EOF
 apt-get update
 apt-get install sudo -y
 sleep 2
