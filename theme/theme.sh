@@ -31,6 +31,8 @@ sleep 60
 vncstop
 
 sleep 10
+dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'
+sleep 10
 dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
 sleep 10
 dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "Yaru-dark"
