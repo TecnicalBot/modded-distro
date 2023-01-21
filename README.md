@@ -1,4 +1,4 @@
-<p align="center"><img src="./theme/images/ubuntu.png"></p>
+<p align="center"><img src="./images/ubuntu.png"></p>
 <p align="center"><b>Easily Install Full Ubuntu Desktop in Termux</b></p>
 
 ### Features
