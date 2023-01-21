@@ -6,6 +6,7 @@
 - Lightweight (as uses XFCE desktop environment)
 - Fixed Audio Output 
 - Firefox not opening fixed
+- Fixed Firefox Audio output
 
 ### Prerequisite
 - Termux, Get it from from their <a href="https://github.com/termux/termux-app/releases/latest">github</a>
