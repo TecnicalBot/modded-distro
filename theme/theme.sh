@@ -41,6 +41,8 @@ dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "Yaru-dark"
 sleep 10
 dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Yaru-dark"
 sleep 10
+dbus-launch xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
+sleep 10
 dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s /usr/share/backgrounds/warty-final-ubuntu.png
 sleep 10
 cat ~/modded-distro/theme/plank/dock.ini | dbus-launch dconf load  /net/launchpad/plank/docks/dock1/
