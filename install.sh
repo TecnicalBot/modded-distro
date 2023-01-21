@@ -110,12 +110,28 @@ sound_fix(){
 echo ${G}"Fixing Sound..."${W}
 pkg update
 pkg install x11-repo -y ; pkg install pulseaudio -y
-cat >> ~/.bashrc <<
+cat > $HOME/.bashrc <<- EOF
 pulseaudio --start \
     --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" \
     --exit-idle-time=-1
 EOF
-bash
+
+mv $CHROOT/home/ubuntu/.bashrc $CHROOT/home/ubuntu/.bashrc.bak
+cat > $CHROOT/home/ubuntu/.bashrc <<- EOF
+vncstart
+sleep 4
+DISPLAY=:1 firefox &
+sleep 10
+pkill -f firefox
+vncstop
+sleep 4
+exit
+echo
+EOF
+ubuntu
+rm $CHROOT/home/ubuntu/.bashrc
+mv $CHROOT/home/ubuntu/.bashrc.bak $CHROOT/home/ubuntu/.bashrc
+wget -O $(find $CHROOT/home/ubuntu/.mozilla/firefox -name *.default-esr)/user.js https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/fixes/user.js
 }
 
 final_banner(){
