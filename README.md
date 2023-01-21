@@ -9,6 +9,7 @@
 - Fixed Firefox Audio output
 
 ### Prerequisite
+- Android device (No Root Required)
 - Termux, Get it from from their <a href="https://github.com/termux/termux-app/releases/latest">github</a>
 - VNC viewer, Get it from  <a href="https://play.google.com/store/apps/details?id=com.realvnc.viewer.android">playstore</a>
 - 4GB of Storage
