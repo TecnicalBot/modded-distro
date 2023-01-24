@@ -62,7 +62,7 @@ adding_user(){
 echo ${G}"Adding a User..."${W}
 cat > $CHROOT/root/.bashrc <<- EOF
 apt-get update
-apt-get install sudo -y
+apt-get install sudo wget -y
 sleep 2
 useradd -m -s /bin/bash ubuntu
 echo "ubuntu:ubuntu" | chpasswd
