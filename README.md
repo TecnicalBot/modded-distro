@@ -14,6 +14,16 @@
 - VNC viewer, Get it from  <a href="https://play.google.com/store/apps/details?id=com.realvnc.viewer.android">playstore</a>
 - 4GB of Storage
 
+### To fix Android 12 issue, watch the video
+<div align="center">
+      <a href="https://www.youtube.com/watch?v=Bzwm9gblog8">
+     <img 
+      src="https://img.youtube.com/vi/BZWM9gbLoG8/0.jpg" 
+      alt="Everything Is AWESOME" 
+      style="width:100%;">
+      </a>
+    </div>
+
 ### Installation
 Paste following command in Termux
 ```bash
