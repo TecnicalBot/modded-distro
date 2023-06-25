@@ -8,6 +8,9 @@
 - Firefox not opening fixed
 - Fixed Firefox Audio output
 
+### Video Guide Here
+[![IMAGE](https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/images/thumbnail.jpg)](https://youtu.be/gzbHaxuWT2E)
+
 ### Prerequisite
 - Android device (No Root Required)
 - Termux, Get it from from their <a href="https://github.com/termux/termux-app/releases/latest">github</a>
