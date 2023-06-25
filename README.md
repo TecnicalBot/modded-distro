@@ -1,5 +1,4 @@
-<p align="center"><img src="./images/ubuntu.png"></p>
-<p align="center"><b>Easily Install Full Ubuntu Desktop in Termux</b></p>
+[![IMAGE](https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/images/ubuntu.png)](https://youtu.be/gzbHaxuWT2E)
 
 ### Features
 - Looks Exactly like Ubuntu Desktop
