@@ -1,4 +1,5 @@
 [![IMAGE](https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/images/ubuntu.png)](https://youtu.be/gzbHaxuWT2E)
+<p align="center">Easily install Full Ubuntu Desktop on Android without Root</p>
 
 ### Features
 - Looks Exactly like Ubuntu Desktop
