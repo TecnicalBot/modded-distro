@@ -24,7 +24,7 @@ CHROOT=$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu
 
 install_ubuntu(){
 echo
-if [[ -d "$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu" ]]; then
+if [ -d "$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu" ]]; then
 echo ${G}"Existing Ubuntu installation found, Resetting it..."${W}
 proot-distro reset ubuntu
 else
