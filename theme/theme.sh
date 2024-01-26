@@ -23,7 +23,7 @@ mkdir -p ~/.config/plank/dock1/
 mv ~/modded-distro/theme/plank/launchers ~/.config/plank/dock1/
 mv ~/modded-distro/theme/plank/Azeny ~/.local/share/plank/themes
 
-clear
+
 echo
 echo ${G}"Create Your VNC Password"${W}
 vncstart
