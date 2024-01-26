@@ -150,7 +150,7 @@ rm -rf ~/install.sh
 banner
 install_ubuntu
 install_desktop
-install_extra
+#install_extra
 adding_user
 install_theme
 sound_fix
