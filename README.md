@@ -5,8 +5,6 @@
 - Looks Exactly like Ubuntu Desktop
 - Lightweight (as uses XFCE desktop environment)
 - Fixed Audio Output 
-- Firefox not opening fixed
-- Fixed Firefox Audio output
 
 ### Video Guide Here
 [![IMAGE](https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/images/thumbnail.jpg)](https://youtu.be/gzbHaxuWT2E)
