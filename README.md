@@ -1,25 +1,35 @@
 [![IMAGE](https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/images/ubuntu.jpg)](https://youtu.be/gzbHaxuWT2E)
-<b><p align="center">Easily install Full Ubuntu Desktop on Android without Root</p></b>
 
-### Features
-- Looks Exactly like Ubuntu Desktop
-- Lightweight (as uses XFCE desktop environment)
-- Fixed Audio Output 
+<p align="center"><b>Easily install a full Ubuntu Desktop on Android without root</b></p>
 
-### Video Guide Here
+## Features
+
+- Looks and feels like the official Ubuntu Desktop
+- Lightweight (uses the XFCE desktop environment)
+- Audio output fixed and working
+- No root required
+
+## Video Guide
+
 [![IMAGE](https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/images/thumbnail.jpg)](https://youtu.be/gzbHaxuWT2E)
 
-### Tested on Android 12
+## Tested On
 
-### Prerequisite
-- Android device (No Root Required)
-- Termux, Get it from from their <a href="https://github.com/termux/termux-app/releases/latest">github</a>
-- VNC viewer, Get it from  <a href="https://play.google.com/store/apps/details?id=com.realvnc.viewer.android">playstore</a>
-- 4GB of Storage
+- Android 12
 
-### Installation
-Paste following command in Termux
+## Prerequisites
+
+- Android device (no root required)
+- Termux (install from the official  
+  <a href="https://github.com/termux/termux-app/releases/latest">GitHub releases</a>)
+- VNC Viewer (from the  
+  <a href="https://play.google.com/store/apps/details?id=com.realvnc.viewer.android">Play Store</a>)
+- At least 4 GB of free storage
+
+## Installation
+
+Paste the following commands into Termux:
+
 ```bash
-curl https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/install.sh >> install.sh
-bash install.sh
+curl -fsSL https://raw.githubusercontent.com/TecnicalBot/modded-distro/main/install.sh | bash
 ```

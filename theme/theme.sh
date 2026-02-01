@@ -1,52 +1,61 @@
 #!/bin/bash
 
-#Adding colors
-R="$(printf '\033[1;31m')"
-G="$(printf '\033[1;32m')"
-Y="$(printf '\033[1;33m')"
-W="$(printf '\033[1;37m')"
-C="$(printf '\033[1;36m')"
+set -Eeuo pipefail
+IFS=$'\n\t'
+
+export DEBIAN_FRONTEND=noninteractive
+
+BASE_DIR="$HOME/modded-distro"
+PANEL_ARCHIVE="$HOME/.local/share/xfce4-panel-profiles/ubuntu.tar.bz2"
 
 sudo apt update
-sudo apt install yaru-theme-gtk yaru-theme-icon ubuntu-wallpapers ubuntu-wallpapers-jammy ubuntu-wallpapers-impish plank dconf-cli xfce4-panel-profiles xfce4-appmenu-plugin git -y
-cd ~
-git clone https://github.com/TecnicalBot/modded-distro
-cd ~/modded-distro/theme/panel
-tar --sort=name --format ustar -cvjhf ubuntu.tar.bz2 config.txt
-mkdir -p ~/.local/share/xfce4-panel-profiles/
-mv ~/modded-distro/theme/panel/ubuntu.tar.bz2 ~/.local/share/xfce4-panel-profiles/
-dbus-launch xfce4-panel-profiles load ~/.local/share/xfce4-panel-profiles/ubuntu.tar.bz2
-mkdir -p ~/.config/autostart
-mv ~/modded-distro/theme/plank/plank.desktop ~/.config/autostart
-mkdir -p ~/.local/share/plank/themes
-mkdir -p ~/.config/plank/dock1/
-mv ~/modded-distro/theme/plank/launchers ~/.config/plank/dock1/
-mv ~/modded-distro/theme/plank/Azeny ~/.local/share/plank/themes
+sudo apt install -y \
+  yaru-theme-gtk \
+  yaru-theme-icon \
+  ubuntu-wallpapers \
+  ubuntu-wallpapers-jammy \
+  ubuntu-wallpapers-impish \
+  plank \
+  dconf-cli \
+  xfce4-panel-profiles \
+  xfce4-appmenu-plugin \
+  git
 
+rm -rf "$BASE_DIR"
+git clone https://github.com/TecnicalBot/modded-distro "$BASE_DIR"
 
-echo
-echo ${G}"Create Your VNC Password"${W}
+mkdir -p "$HOME/.local/share/xfce4-panel-profiles"
+
+tar --sort=name --format=ustar -cvjhf "$PANEL_ARCHIVE" \
+  -C "$BASE_DIR/theme/panel" config.txt
+
+dbus-launch xfce4-panel-profiles load "$PANEL_ARCHIVE"
+
+mkdir -p "$HOME/.config/autostart"
+install -m 644 "$BASE_DIR/theme/plank/plank.desktop" "$HOME/.config/autostart/plank.desktop"
+
+mkdir -p "$HOME/.local/share/plank/themes"
+mkdir -p "$HOME/.config/plank/dock1"
+
+cp -r "$BASE_DIR/theme/plank/launchers" "$HOME/.config/plank/dock1/"
+cp -r "$BASE_DIR/theme/plank/Azeny" "$HOME/.local/share/plank/themes/"
+
+printf '\n\033[1;32mCreate Your VNC Password\033[0m\n'
 vncstart
 sleep 60
 vncstop
 
-sleep 10
-dbus-launch xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'
-sleep 10
-dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s "Yaru-dark"
-sleep 10
-dbus-launch xfconf-query -c xfwm4 -p /general/theme -s "Yaru-dark"
-sleep 10
-dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s  "Yaru-dark"
-sleep 10
-dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Yaru-dark"
-sleep 10
+dbus-launch xfconf-query -c xfce4-desktop -np /desktop-icons/style -t int -s 0
+dbus-launch xfconf-query -c xsettings -p /Net/ThemeName -s Yaru-dark
+dbus-launch xfconf-query -c xfwm4 -p /general/theme -s Yaru-dark
+dbus-launch xfconf-query -c xsettings -p /Net/IconThemeName -s Yaru-dark
+dbus-launch xfconf-query -c xsettings -p /Gtk/CursorThemeName -s Yaru-dark
 dbus-launch xfconf-query -c xfwm4 -p /general/show_dock_shadow -s false
-sleep 10
-dbus-launch xfconf-query -c xfce4-desktop -p $(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image) -s /usr/share/backgrounds/warty-final-ubuntu.png
-sleep 10
-cat ~/modded-distro/theme/plank/dock.ini | dbus-launch dconf load  /net/launchpad/plank/docks/dock1/
-rm -rf ~/modded-distro 
 
+BG_KEY="$(dbus-launch xfconf-query -c xfce4-desktop -l | grep last-image | head -n1)"
+dbus-launch xfconf-query -c xfce4-desktop -p "$BG_KEY" -s "$BASE_DIR/theme/backgrounds/canvas_by_roytanck.jpg"
 
+dbus-launch dconf load /net/launchpad/plank/docks/dock1/ < "$BASE_DIR/theme/plank/dock.ini"
+
+rm -rf "$BASE_DIR"
 
